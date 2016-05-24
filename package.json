@@ -1,7 +1,7 @@
 {
-  "name": "Gulp Starter Kit",
+  "name": "xmplr",
   "version": "1.0.0",
-  "description": "A Gulp starter kit",
+  "description": "Personal homepage",
   "main": "gulpfile.js",
   "devDependencies": {
     "git": "^0.1.5",
