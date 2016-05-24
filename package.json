@@ -1,0 +1,14 @@
+{
+  "name": "Gulp Starter Kit",
+  "version": "1.0.0",
+  "description": "A Gulp starter kit",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "git": "^0.1.5",
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.3.1",
+    "gulp-live-server": "0.0.29",
+    "gulp-sass": "^2.3.1"
+  },
+  "license": "ISC"
+}
