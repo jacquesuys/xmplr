@@ -10,29 +10,83 @@ $bp-large-2 : 54.5em;
 $bp-xl : 60em;
 $bp-xl-2 : 67em;
 
+@font-face {
+  font-family:'AvenirLTStd-Book';
+  src: url('../fonts/AvenirLTStd-Book_gdi.eot');
+  src: url('../fonts/AvenirLTStd-Book_gdi.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AvenirLTStd-Book_gdi.woff') format('woff'),
+    url('../fonts/AvenirLTStd-Book_gdi.ttf') format('truetype'),
+    url('../fonts/AvenirLTStd-Book_gdi.svg#AvenirLTStd-Book') format('svg');
+  font-weight: 350;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-25CA;
+}
+
 img {
   max-width: 100%;
 }
 
 body {
-  background-color: #666;
+  font-family:'AvenirLTStd-Book', 'Helvetica-Neue', Helvetica, Arial, sans-serif;
+  background: url('../img/test-bg.jpg') no-repeat center center #666;
+  background-size: cover;
+  color: #fff;
   font-size: 16px;
 }
 
 .container {
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-direction: column;
+  height: 100vh;
 
-  h1 {
-    width: 40%;
+  header {
+    display: flex;
+    width: 100%;
+    align-self: flex-start;
+    justify-content: space-between;
+
+    nav {
+
+      ul {
+        display: flex;
+
+        li {
+          list-style-type: none;
+          padding: 10px;
+        }
+      }
+    }
+  }
+
+  .greeting {
+    width: 15%;
     opacity: 0.5;
+    margin-left: 100px;
+  }
+
+  .occupation {
+    width: 45%;
+    opacity: 0.5;
+  }
+
+  h2 {
+    margin: 0 0 -20px;
+    width: 40%;
+    transform: scale(1.25, 1.25);
+    opacity: 1;
     transition: all 0.3s ease;
 
     &:hover {
-      width: 50%;
-      opacity: 1;
+      
     }
+  }
+
+  .bio {
+    text-align: center;
+    font-size: 1.0625rem;
+    width: 45%;
   }
 }
 
