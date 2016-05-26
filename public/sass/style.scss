@@ -64,6 +64,10 @@ body {
     }
   }
 
+  .greeting, .name, .occupation, .bio {
+    z-index: 1;
+  }
+
   .greeting {
     width: 15%;
     opacity: 0.5;
@@ -75,7 +79,7 @@ body {
     opacity: 0.5;
   }
 
-  h2 {
+  .name {
     margin: 0 0 -20px;
     width: 40%;
     transform: scale(1.25, 1.25);
@@ -92,6 +96,17 @@ body {
     font-size: 1.0625rem;
     width: 45%;
   }
+
+  .stage {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+  }
+
+  .icon {
+    opacity: 0;
+  }
 }
 
 .overlay {
@@ -103,24 +118,24 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(134deg, #bd00df, #1a45ff, #00d6c1, #45ff1a, #ffef09, #ff2b3d, #bd00df, #1a45ff, #00d6c1);
-  background-size: 1800% 1800%;
+  background: linear-gradient(134deg, #1a45ff, #bd00df, #1a45ff, #00d6c1, #45ff1a, #ffef09, #ff2b3d, #bd00df, #1a45ff, #00d6c1);
+  background-size: 2000% 2000%;
 
-  -webkit-animation: AnimationName 20s linear infinite;
-  -moz-animation: AnimationName 20s linear infinite;
-  animation: AnimationName 20s linear infinite;
+  -webkit-animation: colourSeeSaw 20s linear infinite;
+  -moz-animation: colourSeeSaw 20s linear infinite;
+  animation: colourSeeSaw 20s linear infinite;
 
-  @-webkit-keyframes AnimationName {
+  @-webkit-keyframes colourSeeSaw {
     0%{background-position:0% 52%}
     50%{background-position:100% 49%}
     100%{background-position:0% 52%}
   }
-  @-moz-keyframes AnimationName {
+  @-moz-keyframes colourSeeSaw {
     0%{background-position:0% 52%}
     50%{background-position:100% 49%}
     100%{background-position:0% 52%}
   }
-  @keyframes AnimationName { 
+  @keyframes colourSeeSaw { 
     0%{background-position:0% 52%}
     50%{background-position:100% 49%}
     100%{background-position:0% 52%}
