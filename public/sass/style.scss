@@ -1,5 +1,7 @@
 @import 'reset';
 
+$easeOutElastic: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
 $bp-small : 24em;
 $bp-small-2 : 29.75em;
 $bp-small-3 : 39.8em;
@@ -81,12 +83,7 @@ body {
     margin: 0 0 -20px;
     width: 40%;
     opacity: 0.75;
-    transition: all 0.3s ease;
-
-    &.active {
-      opacity: 1;
-      transform: scale(1.25, 1.25);
-    }
+    transform: scale(1, 1);
   }
 
   .bio {

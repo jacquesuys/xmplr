@@ -1,9 +1,5 @@
 document.addEventListener('DOMContentLoaded', function(){
 
-  setInterval(function(){
-    document.querySelector('.name').classList.add('active');
-  }, 2500);
-
   var w = window.innerWidth, h = window.innerHeight, ms = 15000;
   var svg = d3.select('.stage').attr({'width': w, 'height': h});
   
@@ -18,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function(){
     .attr({'x': random(w) + 'px', 'y': random(h) + 'px'});
   });
 
-  var custom = setInterval(function(){
+  var drift = setInterval(function(){
     
     icons
     .each(function(){
@@ -41,5 +37,16 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   }, ms);
 
-  icons.transition().tween(custom);
+  icons.transition().tween(drift);
+
+  var bounce = function() {
+    d3.select('.name')
+    .transition()
+    .duration(1000)
+    .ease('elastic')
+    .style({opacity: 1, transform: 'scale(1.25, 1.25)'});
+  };
+
+  setTimeout(bounce, 1000);
+  setInterval(bounce, 15000);
 });
