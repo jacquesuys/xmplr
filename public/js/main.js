@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', function(){
-  var w = window.innerWidth, h = window.innerHeight, ms = 5000;
+
+  setInterval(function(){
+    document.querySelector('.name').classList.add('active');
+  }, 2500);
+
+  var w = window.innerWidth, h = window.innerHeight, ms = 15000;
   var svg = d3.select('.stage').attr({'width': w, 'height': h});
   
   var random = function(val) {
@@ -14,19 +19,24 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 
   var custom = setInterval(function(){
+    
     icons
     .each(function(){
+
+      var size = Math.max((Math.random() * 7.5), 3);
+
       d3.select(this)
       .transition()
       .duration(ms)
       .ease('linear')
       .style({
-        'opacity': Math.random() - 0.10,
-        'transform': 'scaleX(' + (Math.random() + 1) + ')'
+        'opacity': Math.random()
       })
       .attr({
         'x': random(w) + 'px',
-        'y': random(h) + 'px'
+        'y': random(h) + 'px',
+        'width': size + '%',
+        'height': size + '%'
       });
     });
   }, ms);

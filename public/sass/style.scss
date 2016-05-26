@@ -64,30 +64,28 @@ body {
     }
   }
 
-  .greeting, .name, .occupation, .bio {
-    z-index: 1;
+  .greeting, .name, .occupation {
+   opacity: 0.5;
   }
 
   .greeting {
     width: 15%;
-    opacity: 0.5;
     margin-left: 100px;
   }
 
   .occupation {
     width: 45%;
-    opacity: 0.5;
   }
 
   .name {
     margin: 0 0 -20px;
     width: 40%;
-    transform: scale(1.25, 1.25);
-    opacity: 1;
+    opacity: 0.75;
     transition: all 0.3s ease;
 
-    &:hover {
-      
+    &.active {
+      opacity: 1;
+      transform: scale(1.25, 1.25);
     }
   }
 
@@ -95,6 +93,7 @@ body {
     text-align: center;
     font-size: 1.0625rem;
     width: 45%;
+    z-index: 1;
   }
 
   .stage {
@@ -105,7 +104,7 @@ body {
   }
 
   .icon {
-    opacity: 0;
+    opacity: 0.25;
   }
 }
 
