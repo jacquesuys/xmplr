@@ -1,3 +1,5 @@
-# Gulp Starter Kit
+# XMPLR
+
+My personal portfolio website.
 
 Run: `npm install`
