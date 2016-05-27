@@ -47,6 +47,6 @@ document.addEventListener('DOMContentLoaded', function(){
     .style({opacity: 1, transform: 'scale(1.25, 1.25)'});
   };
 
-  setTimeout(bounce, 1000);
+  setTimeout(bounce(), 1000);
   setInterval(bounce, 15000);
 });
