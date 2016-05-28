@@ -4,7 +4,7 @@ $easeOutElastic: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
 $bp-small : 24em;
 $bp-small-2 : 29.75em;
-$bp-small-3 : 39.8em;
+$bp-med-2 : 39.8em;
 $bp-med : 46.8em;
 $bp-med-2 : 48em;
 $bp-large : 50em;
@@ -29,6 +29,10 @@ img {
   max-width: 100%;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   font-family:'AvenirLTStd-Book', 'Helvetica-Neue', Helvetica, Arial, sans-serif;
   background: url('../img/test-bg.jpg') no-repeat center center #666;
@@ -46,12 +50,17 @@ body {
 
   header {
     position: fixed;
+    z-index: 1;
     top: 0;
     display: flex;
     width: 90%;
     padding: 0 5%;
     align-self: flex-start;
     justify-content: space-between;
+
+    @media all and (max-width: $bp-med-2) {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
 
     nav {
 
@@ -61,6 +70,15 @@ body {
         li {
           list-style-type: none;
           padding: 10px;
+
+          a {
+            color: rgba(255, 255, 255, 1);
+            transition: color 0.3s ease-in;
+
+            &:hover {
+              color: rgba(255, 255, 255, 0.5);
+            }
+          }
         }
       }
     }
@@ -71,7 +89,7 @@ body {
   }
 
   .greeting {
-    @media all and (max-width: $bp-small-3) {
+    @media all and (max-width: $bp-med-2) {
       width: 25%;
     }
     width: 10%;
@@ -79,24 +97,26 @@ body {
   }
 
   .occupation {
-    @media all and (max-width: $bp-small-3) {
+    @media all and (max-width: $bp-med-2) {
       width: 75%;
     }
     width: 45%;
   }
 
   .name {
-    @media all and (max-width: $bp-small-3) {
+    @media all and (max-width: $bp-med-2) {
       width: 70%;
+      margin-bottom: -10px;
     }
     margin: 0 0 -20px;
     width: 40%;
     opacity: 0.75;
     transform: scale(1, 1);
+    z-index: 1;
   }
 
   .bio {
-    @media all and (max-width: $bp-small-3) {
+    @media all and (max-width: $bp-med-2) {
       width: 85%;
     }
     text-align: center;

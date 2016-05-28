@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function(){
     icons
     .each(function(){
 
-      var size = Math.max((Math.random() * 7.5), 3);
+      var size = Math.max((Math.random() * 7.5), 3.5);
 
       d3.select(this)
       .transition()
@@ -47,6 +47,29 @@ document.addEventListener('DOMContentLoaded', function(){
     .style({opacity: 1, transform: 'scale(1.25, 1.25)'});
   };
 
-  setTimeout(bounce(), 1000);
+  setTimeout(bounce, 1000);
   setInterval(bounce, 15000);
+
+  var dataset = [{"skill": "git", "score": 7},
+    {"skill": "javascript", "score": 8},
+    {"skill": "d3", "score": 5},
+    {"skill": "css3", "score": 9},
+    {"skill": "html5", "score": 9},
+    {"skill": "angular1", "score": 7},
+    {"skill": "nodejs", "score": 6},
+    {"skill": "meteor", "score": 6},
+    {"skill": "react", "score": 8},
+    {"skill": "jquery", "score": 9}];
+
+    d3.select('.skills')
+    .data(dataset)
+    .enter()
+    .append('div')
+    .text(function(d) { return d.skill; })
+    .style({
+      'margin-bottom': '5px',
+      'color': 'white',
+      'background-color': "black",
+      'width': function(d) {return (d.score * 10) + '%';}
+    });
 });
