@@ -115,7 +115,7 @@ body {
     z-index: 1;
   }
 
-  .bio {
+  .bio, .skills {
     @media all and (max-width: $bp-med-2) {
       width: 85%;
     }
