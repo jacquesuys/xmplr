@@ -62,18 +62,24 @@ document.addEventListener('DOMContentLoaded', function(){
     {"skill": "jquery", "score": 9}
   ];
 
-  var skills = d3.select('.skills');
-
-  skills
+  var skills = d3.select('.skills')
   .selectAll('div')
   .data(dataset)
   .enter()
-  .insert('div')
+  .append('div')
   .text(function(d) { return d.skill; })
   .style({
     'margin-bottom': '5px',
     'color': 'white',
-    'background-color': "black",
-    'width': function(d) {return (d.score * 10) + '%';}
+    'background-color': 'black',
+    'width': '0%'
+  });
+
+  skills
+  .transition()
+  .duration(1000)
+  .delay(100)
+  .style('width', function(d){
+    return (d.score * 10) + '%';
   });
 });
