@@ -1,3 +1,5 @@
+var firstRect;
+
 document.addEventListener('DOMContentLoaded', function(){
 
   var w = window.innerWidth, h = window.innerHeight, ms = 15000;
@@ -67,19 +69,50 @@ document.addEventListener('DOMContentLoaded', function(){
   .data(dataset)
   .enter()
   .append('div')
-  .text(function(d) { return d.skill; })
+  .text(function(d) { return d.skill + ': ' + (d.score * 10) + '%'; })
   .style({
     'margin-bottom': '5px',
     'color': 'white',
-    'background-color': 'black',
+    'border-bottom': 'solid 3px black',
     'width': '0%'
   });
 
-  skills
-  .transition()
-  .duration(1000)
-  .delay(100)
-  .style('width', function(d){
-    return (d.score * 10) + '%';
-  });
+  function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+      var context = this, args = arguments;
+      var later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  };
+
+  var myEfficientFn = debounce(function() {
+    firstRect = document.querySelectorAll('.container')[0].getBoundingClientRect();
+    var offset = firstRect.height * 0.75;
+
+    console.log(firstRect);
+
+     skills
+      .transition()
+      .duration(2000)
+      .delay(500)
+      .style('width', function(d){
+        return (d.score * 10) + '%';
+      });  
+
+    if (offset <= 0) {
+     
+    }
+    // console.log('container', document.querySelector('.container').getBoundingClientRect());
+
+    // console.log('body', document.body.getBoundingClientRect());
+  }, 250);
+
+  window.addEventListener('scroll', myEfficientFn());
 });
